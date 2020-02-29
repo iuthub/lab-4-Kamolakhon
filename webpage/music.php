@@ -16,34 +16,31 @@
 
 		<div id="listarea">
 			<ul id="musiclist">
-				<li class="mp3item">
-					<a href="songs/Be More.mp3">Be More.mp3</a>
-					(5438375 b)
-				</li>
+				 <?php
+                $musics = glob("songs/*.mp3");
+                foreach ($musics as $filename) {
+                    ?>
+                    <li class="mp3item"><a href="<?= $filename ?>"> <?= $filename ?> </a></li>
+                    <?php
+                }
+                ?>
 
-				<li class="mp3item">
-					<a href="songs/Drift Away.mp3">Drift Away.mp3</a>
-					(5724612 b)
-				</li>
-
-				<li class="mp3item">
-					<a href="songs/Hello.mp3">Hello.mp3</a>
-
-					(1871110 b)
-				</li>
-
-				<li class="mp3item">
-					<a href="songs/Panda Sneeze.mp3">Panda Sneeze.mp3</a>
-					(58 b)
-				</li>
-
-				<li class="playlistitem">
-					<a href="music.php?playlist=mypicks.txt">mypicks.txt</a>
-				</li>
-
-				<li class="playlistitem">
-					<a href="music.php?playlist=playlist.txt">playlist.txt</a>
-				</li>
+                <?php
+                $musics = glob("songs/*.mp3");
+                foreach ($musics as $filename) {
+                    ?>
+                    <li class="mp3item"><a href="<?= $filename ?>"> <?= basename($filename) ?> </a></li>
+                    <?php
+                }
+                ?>
+                <?php 
+                $playlists = glob("songs/*.txt");
+                foreach ($playlists as $filename) {
+                  ?>
+                  <li class="playlistitem"><a href="<?= $filename ?>"><?= basename($filename) ?> </a></li>
+                <?php
+              }
+                ?>
 			</ul>
 		</div>
 	</body>
